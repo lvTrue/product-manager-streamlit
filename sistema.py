@@ -1,6 +1,11 @@
+from app import salvar_dados
+
 class SistemaCadastro:
     def __init__(self):
         self.lista_produtos = []
+        
+    def salvar(self):
+        salvar_dados(self.lista_produtos)
         
     def add_produto(self, produto):
         for prod in self.lista_produtos:
