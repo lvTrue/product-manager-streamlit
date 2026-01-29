@@ -1,4 +1,4 @@
-from app import salvar_dados
+from persistencia import salvar_dados, carregar_dados
 
 class SistemaCadastro:
     def __init__(self):
@@ -12,6 +12,7 @@ class SistemaCadastro:
             if prod.nome == produto.nome:
                 return False
         self.lista_produtos.append(produto)
+        self.salvar()
         return True
     
     def remover_produto(self, nome):
