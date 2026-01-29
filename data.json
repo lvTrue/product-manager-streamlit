@@ -1,1 +1,7 @@
-[]
+[
+    {
+        "nome": "Colher",
+        "preco": 200.0,
+        "quantidade": 1500
+    }
+]

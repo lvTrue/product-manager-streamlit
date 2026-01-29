@@ -54,21 +54,21 @@ if side_bar == "Lista":
         
         if sistema.lista_produtos:
             for prod in sistema.lista_produtos:
-                st.write(f"{prod.nome}")
+                st.write(f"{prod["nome"]}")
         
     with col_preco:
         st.subheader("Preco")
         
         if sistema.lista_produtos:
             for prod in sistema.lista_produtos:
-                st.write(f"R${prod.preco}")
+                st.write(f"R${prod["preco"]}")
         
     with col_quantidade:
         st.subheader("Quantidade")
     
         if sistema.lista_produtos:
             for prod in sistema.lista_produtos:
-                st.write(f"{prod.quantidade}")
+                st.write(f"{prod["quantidade"]}")
                 
     # Abas da lista
     aba_remover, aba_editar = st.tabs(["Remover", "Editar"])
@@ -109,9 +109,10 @@ if side_bar == "Lista":
                     salvar = st.form_submit_button("Enviar dados")
                     
                 if salvar:
-                    produto.nome = novo_nome
-                    produto.preco = novo_preco
-                    produto.quantidade = nova_quantidade
+                    produto["nome"] = novo_nome
+                    produto["preco"] = novo_preco
+                    produto["quantidade"] = nova_quantidade
+                    sistema.salvar()
                     st.success("Produto editado com sucesso!")
             else:
                 st.error("produto não encontrado!")
